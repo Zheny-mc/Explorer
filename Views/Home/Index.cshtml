@@ -1,0 +1,36 @@
+﻿@model Tree
+
+@{
+    ViewData["Title"] = "Main";
+    ViewData["path"] = GetTree.tree.startDir;
+}
+
+<blockquote class="blockquote">
+    <p>@ViewData["path"]</p>
+</blockquote>
+
+<div>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th colspan="2">Имя</th>
+            <th><a asp-controller="Home" asp-action="SortFiles">Размер, кб</a></th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="3"><a class="btn" asp-controller="Home" asp-action="GotoBack">--</a></td>
+                
+            </tr>
+            @foreach (var category in Model.blogCategories)
+            {
+                <tr>
+                    <th width="1">@category.type</th>
+                    <td><a class="btn" href="/Home/Index?path=@category.Name">@category.Name</a></td>
+                    <td>@category.Size</td>
+                </tr>
+            }
+        </tbody>
+    
+    </table>
+</div>

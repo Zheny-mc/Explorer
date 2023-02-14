@@ -1,0 +1,26 @@
+﻿@model ASP_project.Models.InputPath
+
+@{
+    ViewData["Title"] = "SourseData";
+    ViewData["StatusPath"] = Model.status;
+}
+
+<h1>Добро пожаловать!</h1>
+
+<h4>Введите путь для отображения: </h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-asp-controller="InputPath" asp-action="Check">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="path" class="control-label">@ViewData["StatusPath"]</label>
+                <input asp-for="path" class="form-control" />
+                <span asp-validation-for="path" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Показать" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
